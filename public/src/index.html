@@ -18,6 +18,23 @@
           $('nav').removeClass('shrink');
         }
       });
+      $(window).scroll(function(){
+        var scrollTop = $(document).scrollTop();
+        var anchors = $('body').find('div');
+        for (var i = 0; i < anchors.length; i++){
+            if($(window).scrollTop() + $(window).height() == $(document).height()) {
+              $('nav ul li a[href="#' + $(anchors[i]).attr('id') + '"]').removeClass('active');
+              $('nav ul li a[href="#contact"]').addClass('active');
+            }
+            else if (scrollTop > $(anchors[i]).offset().top - 60 && scrollTop < $(anchors[i]).offset().top + $(anchors[i]).height()) {
+              $('nav ul li a[href="#contact"]').removeClass('active');
+              $('nav ul li a[href="#' + $(anchors[i]).attr('id') + '"]').addClass('active');
+            } else {
+              $('nav ul li a[href="#contact"]').removeClass('active');
+              $('nav ul li a[href="#' + $(anchors[i]).attr('id') + '"]').removeClass('active');
+            }
+        }
+      });
     });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
