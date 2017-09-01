@@ -135,7 +135,7 @@ var root_1 = __webpack_require__("../../../../rxjs/util/root.js");
 var toSubscriber_1 = __webpack_require__("../../../../rxjs/util/toSubscriber.js");
 var observable_1 = __webpack_require__("../../../../rxjs/symbol/observable.js");
 /**
- * A representation of any set of values over any amount of time. This the most basic building block
+ * A representation of any set of values over any amount of time. This is the most basic building block
  * of RxJS.
  *
  * @class Observable<T>
@@ -143,7 +143,7 @@ var observable_1 = __webpack_require__("../../../../rxjs/symbol/observable.js");
 var Observable = (function () {
     /**
      * @constructor
-     * @param {Function} subscribe the function that is  called when the Observable is
+     * @param {Function} subscribe the function that is called when the Observable is
      * initially subscribed to. This function is given a Subscriber, to which new values
      * can be `next`ed, or an `error` method can be called to raise an error, or
      * `complete` can be called to notify of a successful completion.
@@ -172,7 +172,7 @@ var Observable = (function () {
      *
      * <span class="informal">Use it when you have all these Observables, but still nothing is happening.</span>
      *
-     * `subscribe` is not a regular operator, but a method that calls Observables internal `subscribe` function. It
+     * `subscribe` is not a regular operator, but a method that calls Observable's internal `subscribe` function. It
      * might be for example a function that you passed to a {@link create} static factory, but most of the time it is
      * a library implementation, which defines what and when will be emitted by an Observable. This means that calling
      * `subscribe` is actually the moment when Observable starts its work, not when it is created, as it is often
@@ -214,7 +214,7 @@ var Observable = (function () {
      *     console.log('Adding: ' + value);
      *     this.sum = this.sum + value;
      *   },
-     *   error() { // We actually could just remote this method,
+     *   error() { // We actually could just remove this method,
      *   },        // since we do not really care about errors right now.
      *   complete() {
      *     console.log('Sum equals: ' + this.sum);
@@ -269,7 +269,7 @@ var Observable = (function () {
      * // Logs:
      * // 0 after 1s
      * // 1 after 2s
-     * // "unsubscribed!" after 2,5s
+     * // "unsubscribed!" after 2.5s
      *
      *
      * @param {Observer|Function} observerOrNext (optional) Either an observer with methods to be called,
@@ -2599,6 +2599,7 @@ module.exports = g;
 /* unused harmony export NgLocalization */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return parseCookieValue; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CommonModule; });
+/* unused harmony export DeprecatedI18NPipesModule */
 /* unused harmony export NgClass */
 /* unused harmony export NgFor */
 /* unused harmony export NgForOf */
@@ -2646,7 +2647,7 @@ module.exports = g;
 /* unused harmony export ɵb */
 
 /**
- * @license Angular v4.3.3
+ * @license Angular v4.3.6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -6060,8 +6061,8 @@ var ISO8601_DATE_REGEX = /^(\d{4})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\
  *  | month     |   M    | L (S)  | MMM (Sep)    | MMMM (September)  | M (9)     | MM (09)   |
  *  | day       |   d    | -      | -            | -                 | d (3)     | dd (03)   |
  *  | weekday   |   E    | E (S)  | EEE (Sun)    | EEEE (Sunday)     | -         | -         |
- *  | hour      |   j    | -      | -            | -                 | j (13)    | jj (13)   |
- *  | hour12    |   h    | -      | -            | -                 | h (1 PM)  | hh (01 PM)|
+ *  | hour      |   j    | -      | -            | -                 | j (1 PM)  | jj (1 PM) |
+ *  | hour12    |   h    | -      | -            | -                 | h (1)     | hh (01)   |
  *  | hour24    |   H    | -      | -            | -                 | H (13)    | HH (13)   |
  *  | minute    |   m    | -      | -            | -                 | m (5)     | mm (05)   |
  *  | second    |   s    | -      | -            | -                 | s (9)     | ss (09)   |
@@ -6512,6 +6513,30 @@ CommonModule.decorators = [
  */
 CommonModule.ctorParameters = function () { return []; };
 /**
+ * I18N pipes are being changed to move away from using the JS Intl API.
+ *
+ * The former pipes relying on the Intl API will be moved to this module while the `CommonModule`
+ * will contain the new pipes that do not rely on Intl.
+ *
+ * As a first step this module is created empty to ease the migration.
+ *
+ * see https://github.com/angular/angular/pull/18284
+ *
+ * @deprecated from v5
+ */
+var DeprecatedI18NPipesModule = (function () {
+    function DeprecatedI18NPipesModule() {
+    }
+    return DeprecatedI18NPipesModule;
+}());
+DeprecatedI18NPipesModule.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */], args: [{ declarations: [], exports: [] },] },
+];
+/**
+ * @nocollapse
+ */
+DeprecatedI18NPipesModule.ctorParameters = function () { return []; };
+/**
  * @license
  * Copyright Google Inc. All Rights Reserved.
  *
@@ -6589,7 +6614,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.6');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -6858,7 +6883,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]
 /* unused harmony export removeSummaryDuplicates */
 
 /**
- * @license Angular v4.3.3
+ * @license Angular v4.3.6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -6878,7 +6903,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* Version */]('4.3.6');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -18899,7 +18924,7 @@ function extractStyleUrls(resolver, baseUrl, cssText) {
     return new StyleWithImports(modifiedCssText, foundUrls);
 }
 var CSS_IMPORT_REGEXP = /@import\s+(?:url\()?\s*(?:(?:['"]([^'"]*))|([^;\)\s]*))[^;]*;?/g;
-var CSS_COMMENT_REGEXP = /\/\*.+?\*\//g;
+var CSS_COMMENT_REGEXP = /\/\*[\s\S]+?\*\//g;
 var URL_WITH_SCHEMA_REGEXP = /^([^:/?#]+):/;
 /**
  * @license
@@ -19180,7 +19205,7 @@ var BindingParser = (function () {
         // This will occur when a @trigger is not paired with an expression.
         // For animations it is valid to not have an expression since */void
         // states will be applied by angular when the element is attached/detached
-        var /** @type {?} */ ast = this._parseBinding(expression || 'null', false, sourceSpan);
+        var /** @type {?} */ ast = this._parseBinding(expression || 'undefined', false, sourceSpan);
         targetMatchableAttrs.push([name, /** @type {?} */ ((ast.source))]);
         targetProps.push(new BoundProperty(name, ast, BoundPropertyType.ANIMATION, sourceSpan));
     };
@@ -34705,7 +34730,7 @@ function _mergeArrays(parts) {
 /* unused harmony export ɵu */
 
 /**
- * @license Angular v4.3.3
+ * @license Angular v4.3.6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -35501,7 +35526,7 @@ var Version = (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('4.3.3');
+var VERSION = new Version('4.3.6');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -39396,16 +39421,21 @@ var ApplicationRef_ = (function (_super) {
             });
         });
         var isStable = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"](function (observer) {
-            var stableSub = _this._zone.onStable.subscribe(function () {
-                NgZone.assertNotInAngularZone();
-                // Check whether there are no pending macro/micro tasks in the next tick
-                // to allow for NgZone to update the state.
-                scheduleMicroTask(function () {
-                    if (!_this._stable && !_this._zone.hasPendingMacrotasks &&
-                        !_this._zone.hasPendingMicrotasks) {
-                        _this._stable = true;
-                        observer.next(true);
-                    }
+            // Create the subscription to onStable outside the Angular Zone so that
+            // the callback is run outside the Angular Zone.
+            var stableSub;
+            _this._zone.runOutsideAngular(function () {
+                stableSub = _this._zone.onStable.subscribe(function () {
+                    NgZone.assertNotInAngularZone();
+                    // Check whether there are no pending macro/micro tasks in the next tick
+                    // to allow for NgZone to update the state.
+                    scheduleMicroTask(function () {
+                        if (!_this._stable && !_this._zone.hasPendingMacrotasks &&
+                            !_this._zone.hasPendingMicrotasks) {
+                            _this._stable = true;
+                            observer.next(true);
+                        }
+                    });
                 });
             });
             var unstableSub = _this._zone.onUnstable.subscribe(function () {
@@ -40606,7 +40636,7 @@ var ChangeDetectorRef = (function () {
      *
      *   constructor(private ref: ChangeDetectorRef) {
      *     setInterval(() => {
-     *       this.numberOfTicks ++
+     *       this.numberOfTicks++;
      *       // the following is required, otherwise the view will not be updated
      *       this.ref.markForCheck();
      *     }, 1000);
@@ -40657,11 +40687,11 @@ var ChangeDetectorRef = (function () {
      * \@Component({
      *   selector: 'giant-list',
      *   template: `
-     *     <li *ngFor="let d of dataProvider.data">Data {{d}}</lig>
+     *     <li *ngFor="let d of dataProvider.data">Data {{d}}</li>
      *   `,
      * })
      * class GiantList {
-     *   constructor(private ref: ChangeDetectorRef, private dataProvider:DataProvider) {
+     *   constructor(private ref: ChangeDetectorRef, private dataProvider: DataProvider) {
      *     ref.detach();
      *     setInterval(() => {
      *       this.ref.detectChanges();
@@ -40748,13 +40778,14 @@ var ChangeDetectorRef = (function () {
      *   template: 'Data: {{dataProvider.data}}'
      * })
      * class LiveData {
-     *   constructor(private ref: ChangeDetectorRef, private dataProvider:DataProvider) {}
+     *   constructor(private ref: ChangeDetectorRef, private dataProvider: DataProvider) {}
      *
      *   set live(value) {
-     *     if (value)
+     *     if (value) {
      *       this.ref.reattach();
-     *     else
+     *     } else {
      *       this.ref.detach();
+     *     }
      *   }
      * }
      *
@@ -44772,6 +44803,9 @@ var ViewContainerRef_ = (function () {
      * @return {?}
      */
     ViewContainerRef_.prototype.insert = function (viewRef, index) {
+        if (viewRef.destroyed) {
+            throw new Error('Cannot insert a destroyed View in a ViewContainer!');
+        }
         var /** @type {?} */ viewRef_ = (viewRef);
         var /** @type {?} */ viewData = viewRef_._view;
         attachEmbeddedView(this._view, this._data, index, viewData);
@@ -44784,6 +44818,9 @@ var ViewContainerRef_ = (function () {
      * @return {?}
      */
     ViewContainerRef_.prototype.move = function (viewRef, currentIndex) {
+        if (viewRef.destroyed) {
+            throw new Error('Cannot move a destroyed View in a ViewContainer!');
+        }
         var /** @type {?} */ previousIndex = this._embeddedViews.indexOf(viewRef._view);
         moveEmbeddedView(this._data, previousIndex, currentIndex);
         return viewRef;
@@ -46043,8 +46080,13 @@ function calcQueryValues(view, startIndex, endIndex, queryDef, values) {
         if (nodeDef.flags & 1 /* TypeElement */ && ((nodeDef.element)).template &&
             (((((nodeDef.element)).template)).nodeMatchedQueries & queryDef.filterId) ===
                 queryDef.filterId) {
-            // check embedded views that were attached at the place of their template.
             var /** @type {?} */ elementData = asElementData(view, i);
+            // check embedded views that were attached at the place of their template,
+            // but process child nodes first if some match the query (see issue #16568)
+            if ((nodeDef.childMatchedQueries & queryDef.filterId) === queryDef.filterId) {
+                calcQueryValues(view, i + 1, i + nodeDef.childCount, queryDef, values);
+                i += nodeDef.childCount;
+            }
             if (nodeDef.flags & 16777216 /* EmbeddedViews */) {
                 var /** @type {?} */ embeddedViews = ((elementData.viewContainer))._embeddedViews;
                 for (var /** @type {?} */ k = 0; k < embeddedViews.length; k++) {
@@ -48599,11 +48641,12 @@ var NgModuleFactory_ = (function (_super) {
  * <div [\@myAnimationTrigger]="myStatusExp">...</div>
  * ```
  *
- * ## Disable Child Animations
+ * ## Disable Animations
  * A special animation control binding called `\@.disabled` can be placed on an element which will
- * then disable animations for any inner animation triggers situated within the element.
+ * then disable animations for any inner animation triggers situated within the element as well as
+ * any animations on the element itself.
  *
- * When true, the `\@.disabled` binding will prevent inner animations from rendering. The example
+ * When true, the `\@.disabled` binding will prevent all animations from rendering. The example
  * below shows how to use this feature:
  *
  * ```ts
@@ -48629,8 +48672,8 @@ var NgModuleFactory_ = (function (_super) {
  * The `\@childAnimation` trigger will not animate because `\@.disabled` prevents it from happening
  * (when true).
  *
- * Note that `\@.disbled` will only disable inner animations (any animations running on the same
- * element will not be disabled).
+ * Note that `\@.disbled` will only disable all animations (this means any animations running on
+ * the same element will also be disabled).
  *
  * ### Disabling Animations Application-wide
  * When an area of the template is set to have animations disabled, **all** inner components will
@@ -48892,10 +48935,11 @@ function style$1(tokens) {
  * \@experimental Animation support is experimental.
  * @param {?} name
  * @param {?} styles
+ * @param {?=} options
  * @return {?}
  */
-function state$1(name, styles) {
-    return { type: 0 /* State */, name: name, styles: styles };
+function state$1(name, styles, options) {
+    return { type: 0 /* State */, name: name, styles: styles, options: options };
 }
 /**
  * `keyframes` is an animation-specific function that is designed to be used inside of Angular's
@@ -49516,7 +49560,7 @@ function transition$$1(stateChangeExpr, steps) {
 /* unused harmony export ɵResourceLoaderImpl */
 
 /**
- * @license Angular v4.3.3
+ * @license Angular v4.3.6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -49649,7 +49693,7 @@ var CachedResourceLoader = (function (_super) {
 /**
  * @stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.6');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
@@ -49737,7 +49781,7 @@ var platformBrowserDynamic = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__
 /* unused harmony export ɵe */
 
 /**
- * @license Angular v4.3.3
+ * @license Angular v4.3.6
  * (c) 2010-2017 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -54144,7 +54188,7 @@ var By = (function () {
 /**
  * \@stable
  */
-var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.3');
+var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["E" /* Version */]('4.3.6');
 /**
  * @license
  * Copyright Google Inc. All Rights Reserved.
