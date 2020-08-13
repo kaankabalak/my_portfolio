@@ -13,7 +13,7 @@
 .summary {
     width: 100%;
     max-width: 750px;
-    margin: auto;
+    margin: 20px auto auto;
 }
 h1{
     font-family: 'Montserrat';
