@@ -108,12 +108,6 @@ ul {
     border: 7px solid rgba(255, 255, 255, .1);
 }
 
-.jerseys {
-    width: 100%;
-    max-width: 750px;
-    margin: 10px auto;
-}
-
 .carousel {
     position: relative;
     width: 700px;
